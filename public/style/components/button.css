@@ -1,0 +1,55 @@
+.btn {
+	display: inline-block;
+	border-radius: 5px;
+	background: radial-gradient(farthest-side ellipse at top left, white, #aaaaaa);
+	box-shadow: 5px 10px 20px rgba(0,0,0,0.3), -5px -5px 20px rgba(255,255,255,0.5);
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+	.btn_auth {
+		margin: 0 10px;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	.btn_menu {
+		margin: 0 10px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.btn_file {
+		margin-right: 20px;
+	}
+
+	.btn_save {
+		width: 100px;
+		background: radial-gradient(farthest-side ellipse at top left, white, #32CD32);
+		margin: 0 10px;
+		font-size: 16px;
+	}
+
+	.btn_edit {
+		width: 100px;
+		background: radial-gradient(farthest-side ellipse at top left, white, #FF8C00);
+		margin: 5px;
+		font-size: 16px;
+	}
+
+	.btn_delete {
+		width: 100px;
+		background: radial-gradient(farthest-side ellipse at top left, white, #DC143C);
+		margin: 5px;
+		font-size: 16px;
+	}
+
+	.btn_more {
+		width: 100px;
+		background: radial-gradient(farthest-side ellipse at top left, white, #4169E1);
+		margin: 5px;
+		font-size: 16px;
+	}
+
+
+

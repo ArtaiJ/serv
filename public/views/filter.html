@@ -1,0 +1,16 @@
+<table class="filter-table">
+	<tr class="filter-row filter-row__head">
+		<td ng-class="{'active': vm.filter == 'name', 'negative': vm.filter == '-name'}" class="filter-column" ng-click="vm.setFilter('name')">Name</td>
+		<td ng-class="{'active': vm.filter == 'surname', 'negative': vm.filter == '-surname'}" class="filter-column" ng-click="vm.setFilter('surname')">Surname</td>
+		<td ng-class="{'active': vm.filter == 'age', 'negative': vm.filter == '-age'}" class="filter-column" ng-click="vm.setFilter('age')">Age</td>
+		<td ng-class="{'active': vm.filter == 'position', 'negative': vm.filter == '-position'}" class="filter-column" ng-click="vm.setFilter('position')">Position</td>
+		<td ng-class="{'active': vm.filter == 'date', 'negative': vm.filter == '-date'}" class="filter-column" ng-click="vm.setFilter('date')">Date</td>
+	</tr>
+	<tr class="filter-row" ng-repeat="employee in vm.employes | orderBy: vm.filter">
+		<td class="filter-column" ng-bind="employee.name"></td>
+		<td class="filter-column" ng-bind="employee.surname"></td>
+		<td class="filter-column" ng-bind="employee.age"></td>
+		<td class="filter-column" ng-bind="employee.position"></td>
+		<td class="filter-column" ng-bind="employee.date | mydate"></td>
+	</tr>
+</table>

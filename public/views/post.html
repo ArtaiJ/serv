@@ -1,0 +1,36 @@
+<section class="post">
+	<span class="post__title">{{vm.post.title}}</span>
+	<div class="image__position">
+		<img class="post__image" ng-src="{{vm.post.link}}" alt="">
+	</div>
+	<span class="post__content">{{vm.post.content}}</span>
+	<div class="post__info">
+		<span class="post__author">{{vm.post.author}}</span>
+		<span class="post__date">{{vm.post.date | date}}</span>
+		
+	</div>
+	<form class="comment__form" ng-submit="vm.addComment()" ng-if="session">
+		<textarea class="comment__input" ng-model="vm.text" required="" placeholder="Введите Ваш комментарий"></textarea>
+		<button type="submit" class="btn">Add comment</button>
+	</form>
+	<section class="comment">
+		<div class="comment__item" ng-repeat="comment in vm.post.comments">
+			<span class="comment__author" ng-bind="comment.author_name"></span>
+			<span class="comment__text" ng-bind="comment.text"></span>
+			<span class="comment__date" ng-bind="comment.date | date"></span>
+			<button class="btn" ng-if="session._id == comment.author" ng-click="vm.selectComment($index, comment)" src="../uploads/edit.svg">
+				Edit
+			</button>
+			<button class="btn" ng-if="session._id == comment.author" ng-click="vm.deleteComment($index, comment)">
+				Delete
+			</button>
+			<form class="comment-edit" ng-if="vm.currentComment == $index">
+				<textarea class="comment-edit__input" ng-model="vm.currentCommentText"></textarea>
+				<button class="btn comment-edit__btn" ng-click="vm.editComment()">Save</button>
+				<button class="btn comment-edit__btn" ng-click="vm.cancel()">Cancel</button>
+				
+			</form>
+			
+		</div>
+	</section>
+</section>

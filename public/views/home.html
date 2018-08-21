@@ -1,0 +1,80 @@
+<section class="home">
+
+<form ng-submit="vm.savePost()" class="home__add">
+	<div class="home__field">
+		<input type="text" class="input input_home" name="" placeholder="Title" ng-model="vm.title" required="">
+	</div>
+	<div class="home__field">
+		<input type="text" class="input input_home" name="" placeholder="Content" ng-model="vm.content" required="">
+	</div>
+	<div class="home__field">
+		<input type="text" class="input input_home" name="" placeholder="Author" ng-model="vm.author" required="">
+	</div>
+	<div class="home__field_file">
+		<input type="file" name="" ng-file-model="vm.file" accept="image/*" required="" class="btn btn_file">
+		<button type="submit" class="btn btn_save">Save</button>
+	</div>
+</form>
+
+<table class="table table_home">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Content</td>
+			<td>Author</td>
+			<td>Date</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="post in vm.posts">
+			<td ng-bind="post.title"></td>
+			<td ng-bind="post.content"></td>
+			<td ng-bind="post.author"></td>
+			<td ng-bind="post.date | date"></td>
+			<td>
+				<button ng-click="vm.makeEditable(post)" class="btn btn_edit">Edit</button>
+				<button ng-click="vm.deletePost(post)" class="btn btn_delete">Delete</button>
+				<button ui-sref="post({id: post._id})" class="btn btn_more">More</button>
+			</td>
+			<td>
+				<img class="post-status" src="/images/like.svg" alt="" ng-if="post.liked_users.includes(session._id)" ng-click="vm.setLike(post._id, $index)">
+				<img class="post-status" src="/images/dislike.svg" alt="" ng-if="!post.liked_users.includes(session._id)" ng-click="vm.setLike(post._id, $index)">
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</section>
+
+<section class="modal" ng-if="vm.objectToEdit != null">
+	<div class="modal__backdrop" ng-click="vm.closeModal()"></div>
+	<div class="modal__window">
+		<div class="modal__title">Edit Post</div>
+		<div class="modal__field">
+			<input type="text" class="input input_modal" ng-model="vm.objectToEdit.title">
+		</div>
+		<div class="modal__field">
+			<input type="text" class="input input_modal" ng-model="vm.objectToEdit.content">
+		</div>
+		<div class="modal__field">
+			<input type="text" class="input input_modal" ng-model="vm.objectToEdit.author">
+		</div>
+		<div class="modal__field">
+			<button class="btn btn_modal" ng-click="vm.editPost()">Submit</button>
+		</div>
+	</div>
+</section>
+
+<div class="pagination">
+	<div ng-click="vm.prevPage()"> <<< </div>
+	<button ng-repeat="page in vm.pages track by $index" ng-bind="page + 1" class="btn" ng-class="{'active': vm.current_page == page + 1}" ng-click="vm.setPage(page + 1)"></button>
+	<div ng-click="vm.nextPage()"> >>> </div>
+</div>
+
+
+<!-- ДЗ
+infinite scroll
+scroll on btn
+
+скачать redis -->
