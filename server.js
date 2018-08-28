@@ -33,6 +33,11 @@ app.get('*', (req, res, next) => {
 
 
 
-app.listen(3001, () => {
+const server = app.listen(3001, () => {
 	console.log('Server listening on port 3001')
 })
+
+const io = require('socket.io')()
+io.attach(server)
+const socketEvents = require('./server/socket')
+socketEvents(io)

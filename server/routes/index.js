@@ -98,7 +98,7 @@ router.post('/registration', (req, res, next) => {
 			to: user.email, // list of receivers
 			subject: 'Hello ✔', // Subject line
 			text: 'Hello world?', // plain text body
-			html: `<a href="http://localhost:3000/api/accept/${user._id}">Moveto link</a>` // html body
+			html: `<a href="http://localhost:3001/api/accept/${user._id}">Moveto link</a>` // html body
 		}
 
 		transporter.sendMail(mailOptions, (err, info) => {
@@ -130,4 +130,4 @@ router.get('/accept/:id', (req, res, next) => {
 router.use('/post', require('./post'))
 router.use('/comment', require('./comment'))
 
-module.exports = router
+module.exports = router;

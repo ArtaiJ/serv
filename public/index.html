@@ -25,6 +25,7 @@
 		<div class="header-nav">
 			<li class="header-nav__item" ui-sref="home">Home</li>
 			<li class="header-nav__item" ui-sref="profile">Profile</li>
+			<li class="header-nav__item" ui-sref="chat">Chat</li>
 		</div>
 
 		<div class="header-action">
@@ -53,6 +54,11 @@
 <script src="/js/vendor/ng-route.min.js"></script>
 <script src="/js/vendor/ng-cookies.min.js"></script>
 <script src="/app.js"></script>
+<!-- sockets -->
+<script src="/js/socket/directive.socket.js"></script>
+<script src="/js/socket/service.socket.js"></script>
+<script src="/js/socket/socket.io.js"></script>
+
 <script src="/js/filters/filter.js"></script>
 <script src="/js/vendor/file.js"></script>
 <script src="/js/controllers/home.js"></script>
@@ -62,4 +68,5 @@
 <script src="js/controllers/header.js"></script>
 <script src="js/controllers/registration.js"></script>
 <script src="js/controllers/filter.js"></script>
+<script src="js/controllers/chat.js"></script>
 </html>
